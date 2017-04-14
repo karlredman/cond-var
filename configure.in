@@ -1,0 +1,13 @@
+AC_INIT(src)
+AM_INIT_AUTOMAKE(cond-var, 0.0.1)
+AC_PROG_CC
+echo "blah, blah, blah"
+echo "this is a subliminal message...."
+##AC_PROG_INSTALL
+AC_OUTPUT(Makefile \
+src/Makefile \
+include/Makefile )
+echo ""
+echo "--- Now run make ---"
+echo ""
+
