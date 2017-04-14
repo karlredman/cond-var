@@ -1,4 +1,7 @@
-Linux Condition Variable Behavior across processes:
+Linux Shared Condition Variable Emulation across processes:
+
+Summary:
+In 1999 Linux was unable to handle SHARED condition variables. The problem bugged me so much at the time that I nearly went nuts trying to find a workaround for sharing a condition variable across process at the time. If you have any inkling of what I'm talking about you might want to take a look an this solution that uses SIGNALS to emulate condition variable behavior across processes on an Intel Linux PC. I happen to know that this particular solution works well and is, in fact, being used in software I've written for several companies (usually it is used in Financial Trading and Telecommunications software).
 
 NOTE:
 (intended for Linux 2.2.14 and previous. These solutions have not
