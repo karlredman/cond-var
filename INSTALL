@@ -5,7 +5,7 @@ quick:
 	type "make"
 	type "cd src"
 	
-	run one producer and upto 32 consumer programs -parasyte
+	run one producer and upto 32 consumer programs -Karl N. Redman
 
 
 

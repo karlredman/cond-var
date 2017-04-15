@@ -1,7 +1,7 @@
-//producer.c  
+//producer.c
 
-/* 
-   TITLE: producer 
+/*
+   TITLE: producer
 
    PURPOSE: demonstrate POSIX condition variable emulation between
    processes, a shared condition variable, for use in Linux. Linux
@@ -9,9 +9,12 @@
 
    NOTE: see procon.h for structure and size info
 
-   AUTHOR: Karl N. Redman (A.K.A. parasyte)
+   AUTHOR: Karl N. Redman
+   CONTACT: karl.redman@gmail.com
+   Project Page: http://karlredman.github.io/cond-var
 
-   last updated: 1-3-2000
+   previous updated: 1-3-2000
+   last updated: 4-15-2017
 */
 
 //define posix stuff
@@ -45,9 +48,9 @@ pthread_cond_t		cv		= PTHREAD_COND_INITIALIZER;
 //a global flag for terminating the process
 int killit = 0;
 
-/* 
-   Signal Handler: handles an interupt signal and a terminate signal 
- */ 
+/*
+   Signal Handler: handles an interupt signal and a terminate signal
+ */
 void signal_handler(int signal)
 {
   switch(signal)
@@ -138,7 +141,7 @@ int main()
      allows us to interupt (ctrl-s,q) the process and use terminate
      signals (ctrl-c)
   */
-  //MUST CATCH BOTH SIGNALS  
+  //MUST CATCH BOTH SIGNALS
   signal(SIGINT, signal_handler);
   signal(SIGTERM, signal_handler);
 
@@ -152,7 +155,7 @@ int main()
     }
   else
     printf("shared_memory = %d\n", shared_memory);
-      
+
   //print where we attached to
   printf("Memory attached at %x\n", (int)shared_memory);
 
@@ -170,7 +173,7 @@ int main()
   shared_stuff->cv = &cv;
 #endif
 
-  //setup ring buffer 
+  //setup ring buffer
   memset(shared_stuff->data, 0, sizeof(shared_stuff->data[0]));
 
   /* init client counter: keeps track of the number of consumer
@@ -178,7 +181,7 @@ int main()
      producer program
   */
   shared_stuff->clients = 0;
-  
+
   /* init termination: an indicator to consumer programs that they
      should terminate or detach from shared memory (the producer is no
      longer in service)
@@ -203,7 +206,7 @@ int main()
   /* this variable is used to represent data. it could be anything,
      even a structure
   */
-  j = 0; 
+  j = 0;
 
 
   /* start a loop: while we haven't been signaled to terminate....
@@ -214,7 +217,7 @@ int main()
        */
       printf("datapos = %d, j = %d\n",shared_stuff->dataPos, j);
 
-      
+
       //change the data in the ring buffer using the j variable
       shared_stuff->data[shared_stuff->dataPos]=j;
 
@@ -260,7 +263,7 @@ int main()
 	      }
 	  }
 #endif
-       
+
 	
 	//slow down the producer for kicks and gigles
 #ifdef __linux__ //I can't remember if nanosleep is portable for linux
@@ -286,13 +289,13 @@ int main()
 
 
   /* OK, now shutdown and cleanup (a terminate signal was received
-     probably) 
+     probably)
   */
- 
+
   //kill consumers (they'll handle their own sigint)
   printf("signal recieved, killing consumers and cleaning up\n");
 
-  /* 
+  /*
      loop through the list of consumers and send an interrupt signal
      to each one
   */
@@ -313,7 +316,7 @@ int main()
       fprintf(stderr, "shmdt failed\n");
       exit(EXIT_FAILURE);
     }
-  
+
   printf("deleting shared memory\n");
   if(shmctl(shmid, IPC_RMID, NULL) == -1)
     {
@@ -322,6 +325,6 @@ int main()
     }
 
   printf("ending program\n");
-  
+
   exit(EXIT_SUCCESS);
 }
