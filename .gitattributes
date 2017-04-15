@@ -15,3 +15,5 @@ configure* linguist-vendored
 depcomp linguist-vendored
 missing linguist-vendored
 mkinstalldirs linguist-vendored
+Makefile* linguist-vendored
+makefile linguist-vendored
