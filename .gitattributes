@@ -1,7 +1,10 @@
+## nuklear option
+#* linguist-vendored
+#*/* linguist-vendored
 # languag usage
 *.c linguist-language=c
 *.cc linguist-language=cpp
-# documentation
+## documentation
 AUTHORS linguist-documentation
 COPYING linguist-documentation
 ChangeLog linguist-documentation
@@ -9,11 +12,14 @@ Condition_Variable_FAQ linguist-documentation
 INSTALL linguist-documentation
 NEWS linguist-documentation
 README linguist-documentation
-# autotools
+## autotools
 aclocal.m4 linguist-vendored
-configure* linguist-vendored
+configure linguist-vendored
+configure.in linguist-vendored
 depcomp linguist-vendored
 missing linguist-vendored
 mkinstalldirs linguist-vendored
-Makefile* linguist-vendored
+Makefile.am linguist-vendored
+Makefile.in linguist-vendored
+Makefile linguist-vendored
 makefile linguist-vendored
