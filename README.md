@@ -48,7 +48,7 @@ Because of the excellent signaling infrastructure of Linux a POSIX style conditi
 The process that is waiting for the change of a variable in another process will suspend execution until it receives a SIGCONT from some other process. Below is an explanation of an example of this behavior.
 
 
- ## The Example:
+## The Example:
 
 The following explains the example code contained within this package from the Linux perspective only. Please see the reference section of the Condition Variable FAQ for information about how POSIX condition variables normally operate.
 
