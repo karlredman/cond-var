@@ -69,14 +69,3 @@ It should be noted that in order to use a sleep routine within the consumer proc
 
 The result of all this is that you end up with one producer process and a bunch of consumer processes that only use as much processor time as is required. If you were to remove the condition variable mechanism here, a single consumer would continuously poll the producers data position, thereby causing the CPU to be used far more than is necessary.
 
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<!--**************************************************************************************************************************************************************     -->
-<script>
-(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-                                                        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
- e=o.createElement(i);r=o.getElementsByTagName(i)[0];
- e.src='//www.google-analytics.com/analytics.js';
- r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-ga('create','UA-75185002-1');ga('send','pageview');
-</script>
-
