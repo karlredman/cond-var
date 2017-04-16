@@ -4,7 +4,7 @@
 
 The POSIX standard for shared condition variables across processes is honored by most UNIX implementations except Linux. In order to provide uniform behavior of the condition variable mechanism a different solution for Linux had to be divined. The code examples provided here demonstrate one solution using signaling.
 
-* Author: Karl N. Redman
+* Author: Karl N. Redman ([Personal Home Page](http://karlredman.github.io))
 * [Project Home Page](http://karlredman.github.io/cond-var)
 * [Github Project Page](https://github.com/karlredman/cond-var)
 * Download package [Zip file](https://github.com/karlredman/cond-var/archive/master.zip)
